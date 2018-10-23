@@ -1,0 +1,31 @@
+OUTPUT_FORMAT("elf32-littlearm", "elf32-littlearm", "elf32-littlearm")
+OUTPUT_ARCH(arm)
+ENTRY(_start)
+SECTIONS
+{
+	. = 0x80008000;
+	
+	. = ALIGN(4);
+	.text      :
+	{
+       	  *(.text)
+	}
+	
+	reset_cpu = .;
+	. = ALIGN(4);
+	.rodata : { 
+	*(.rodata) }
+
+	. = ALIGN(4);
+
+	.data : { 
+	*(.data) 
+	}
+	
+	. = ALIGN(4);
+	_bss_start = .;
+	.bss : { *(.bss) }
+	_end = .;
+
+	
+}
