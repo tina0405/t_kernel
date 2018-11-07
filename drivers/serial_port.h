@@ -56,9 +56,9 @@ static NS16550_t serial_ports[4] = {
 	(NS16550_t)CFG_NS16550_COM3,
 	NULL
 };
-int calc_divisor (NS16550_t port);
+int calc_divisor (void);
 void t_uart_puts (const char *s);
-void NS16550_putc (NS16550_t com_port, char c);
-void NS16550_reinit(NS16550_t com_port, int baud_divisor);
-char NS16550_getc (NS16550_t com_port);
+void NS16550_putc (char c);
+void NS16550_reinit(int baud_divisor);
+char NS16550_getc (void);
 
